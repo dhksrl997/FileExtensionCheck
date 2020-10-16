@@ -41,7 +41,7 @@ $(function() {
 	
 	$(".add-btn").click(function() { // 커스텀 확장자 추가
 		var value=$(".input-custom").val();
-		var check=/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+		var check=/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;  //정규식 체크 한글포함 여부 
 		
 		var fixed=["bat","cmd","com","cpl","exe","scr","js"];
 			if(fixed.indexOf(value)>-1){  //value가 배열안에 존재하지 않을 경우 
@@ -62,14 +62,15 @@ $(function() {
 						value : value
 					},
 					success : function(data) {
-						console.log(data);
+						console.log("test");
 						$(".amount").text(data.count);
 							$(".custom-ex-list").append(`<span class="custom-ex" data-id="${data.load[0].id}">&nbsp;${data.load[0].extension}&nbsp;<i class="close-icon">X</i>&nbsp;
 					&nbsp;</span>`);
 							$(".input-custom").val('');
+					},error : function(){
+						alert("이미 존재하는 값입니다.");
 					}
 				});
-				
 		}
 	});
 	
