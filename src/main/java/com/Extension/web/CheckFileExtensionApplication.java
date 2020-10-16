@@ -11,5 +11,4 @@ public class CheckFileExtensionApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CheckFileExtensionApplication.class, args);
 	}
-
 }
